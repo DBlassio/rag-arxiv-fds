@@ -1,6 +1,8 @@
 langchain
 langchain-anthropic
 langchain-community
+langchain-text-splitters
+transformers
 chromadb
 sentence-transformers
 datasets
