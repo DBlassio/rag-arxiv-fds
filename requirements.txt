@@ -1,9 +1,11 @@
 langchain
 langchain-anthropic
-langchain-community
+langchain-community==0.3.27
 langchain-text-splitters
 transformers
 chromadb
 sentence-transformers
 datasets
 python-dotenv
+anthropic
+ragas==0.3.9

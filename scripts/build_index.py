@@ -3,7 +3,7 @@
 from src.ingestion import fetch_arxiv_papers
 from src.chunking import chunk_documents
 from src.embeddings import embed_texts
-from src.vectorstore import get_client, get_or_create_collection, add_chunks
+from src.vectorstore import get_client, get_or_create_collection, add_chunks, reset_collection
 
 
 #Since ChromaDB only accepts scalar metadata, we need to serialize any list metadata into strings.
@@ -16,9 +16,15 @@ def _serialize_metadata(chunks):
     return chunks
 
 
-def main():
-    print("1. Fetching papers...")
-    docs = fetch_arxiv_papers(max_results=20)
+def main(max_results: int = 500, reset: bool = True):
+    client = get_client()
+
+    if reset:
+        print("0. Resetting collection...")
+        reset_collection(client)
+
+    print(f"1. Fetching {max_results} papers...")
+    docs = fetch_arxiv_papers(max_results=max_results, batch_size=100)
 
     print("2. Chunking...")
     chunks = chunk_documents(docs)
@@ -29,7 +35,6 @@ def main():
     embeddings = embed_texts(texts)
 
     print("4. Indexing into ChromaDB...")
-    client = get_client()
     collection = get_or_create_collection(client)
     add_chunks(collection, chunks, embeddings)
 

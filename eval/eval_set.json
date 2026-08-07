@@ -1,0 +1,102 @@
+[
+  {
+    "question": "How many threshold concepts from business education were investigated in the study?",
+    "ground_truth": "63",
+    "source_title": "Computational linguistic assessment of textbook and online learning media by means of threshold concepts in business education"
+  },
+  {
+    "question": "How many examples does the ClarQ dataset consist of, and across how many domains of stackexchange are they distributed?",
+    "ground_truth": "~2M examples distributed across 173 domains of stackexchange.",
+    "source_title": "ClarQ: A large-scale and diverse dataset for Clarification Question Generation"
+  },
+  {
+    "question": "According to the sociolinguistic analyses in the study, which group of COVID-19 users tends to use more narratives, informed or misinformed users?",
+    "ground_truth": "Informed users",
+    "source_title": "Characterizing COVID-19 Misinformation Communities Using a Novel Twitter Dataset"
+  },
+  {
+    "question": "In the proposed two-stage bottleneck feature learning framework, what serves as the front-end and what serves as the back-end?",
+    "ground_truth": "Autoregressive predictive coding (APC) as the front-end and a DNN-BNF model as the back-end.",
+    "source_title": "Unsupervised Subword Modeling Using Autoregressive Pretraining and Cross-Lingual Phone-Aware Modeling"
+  },
+  {
+    "question": "Which feature selection model and machine learning algorithm were combined in this paper to perform sentiment analysis of 2019 election Twitter data?",
+    "ground_truth": "Word2vec (feature selection model) and Random Forest (machine learning algorithm)",
+    "source_title": "Tweets Sentiment Analysis via Word Embeddings and Machine Learning Techniques"
+  },
+  {
+    "question": "What common pattern in the field does the paper aim to step back from and analyze?",
+    "ground_truth": "The pattern where one group introduces a language task/dataset as a benchmark with a baseline model, which is then improved upon by other groups, after which research moves on and the pattern repeats, without making explicit the argumentation for why this constitutes progress.",
+    "source_title": "Targeting the Benchmark: On Methodology in Current Natural Language Processing Research"
+  },
+  {
+    "question": "By how much did the self-supervised model outperform the best performing models of BioASQ Task 8a in terms of micro-F1 score and LCA-F score, on average?",
+    "ground_truth": "Micro-F1 score by 0.1 and LCA-F score by 0.08.",
+    "source_title": "A Self-supervised Approach for Semantic Indexing in the Context of COVID-19 Pandemic"
+  },
+  {
+    "question": "What is the name of the model proposed in the paper to address the limitations of GNNs in text classification?",
+    "ground_truth": "Hypergraph Attention Networks (HyperGAT)",
+    "source_title": "Be More with Less: Hypergraph Attention Networks for Inductive Text Classification"
+  },
+  {
+    "question": "How many neural architectures for slot filling and intent classification are introduced in the survey?",
+    "ground_truth": "Three (independent model, joint models, and transfer learning models)",
+    "source_title": "Recent Neural Methods on Slot Filling and Intent Classification for Task-Oriented Dialogue Systems: A Survey"
+  },
+  {
+    "question": "Which compositionality metric successfully detects non-trivial compositionality (NTC) rather than treating it as a failure of compositionality?",
+    "ground_truth": "Tree reconstruction error",
+    "source_title": "Measuring non-trivial compositionality in emergent communication"
+  },
+  {
+    "question": "What accuracy did the best model achieve on Popoluca and Tepehua, respectively, in the truly low-resource setting?",
+    "ground_truth": "37.4% for Popoluca and 28.4% for Tepehua.",
+    "source_title": "Tackling the Low-resource Challenge for Canonical Segmentation"
+  },
+  {
+    "question": "What is the name of the unsupervised graph word representation method introduced in the abstract?",
+    "ground_truth": "GraphGlove",
+    "source_title": "Embedding Words in Non-Vector Space with Unsupervised Graph Learning"
+  },
+  {
+    "question": "What is the name of the model proposed in the paper for learning unsupervised embeddings based on dyadic conversations, and what dataset was used to evaluate it?",
+    "ground_truth": "The model is called Personal Conversational Embeddings (PCE), learned using an augmented Gated Recurrent Unit (GRU) model, and it was evaluated on the Movie Script dataset.",
+    "source_title": "Modeling Dyadic Conversations for Personality Inference"
+  },
+  {
+    "question": "In the approach described, what operator's knowledge is distilled into a simple dot product to enable single-step ANN search?",
+    "ground_truth": "ColBERT's MaxSim operator",
+    "source_title": "Distilling Dense Representations for Ranking using Tightly-Coupled Teachers"
+  },
+  {
+    "question": "What efficiency improvement threshold does the proposed topic modeling-based approach exceed compared to other analyzed techniques?",
+    "ground_truth": "> 0.5",
+    "source_title": "Efficient Clustering from Distributions over Topics"
+  },
+  {
+    "question": "According to the study, which form of teaching (language-based or demonstration-based) was found to be more affected by perceptual misalignment between teacher and learner?",
+    "ground_truth": "Language-based teaching",
+    "source_title": "Show or Tell? Demonstration is More Robust to Changes in Shared Perception than Explanation"
+  },
+  {
+    "question": "What BLEU score does NABU achieve on the English monolingual RDF-to-text task, outperforming state-of-the-art approaches?",
+    "ground_truth": "66.21 BLEU",
+    "source_title": "NABU $\\mathrm{-}$ Multilingual Graph-based Neural RDF Verbalizer"
+  },
+  {
+    "question": "What rank did the QMUL-SDS team's best system achieve in Task 1 of the CLEF 2020 CheckThat! shared task?",
+    "ground_truth": "Fourth",
+    "source_title": "QMUL-SDS at CheckThat! 2020: Determining COVID-19 Tweet Check-Worthiness Using an Enhanced CT-BERT with Numeric Expressions"
+  },
+  {
+    "question": "What is the name of the word level generative model for natural language introduced in the abstract?",
+    "ground_truth": "AUTR (Attentive Unsupervised Text (W)riter)",
+    "source_title": "Generating Sentences Using a Dynamic Canvas"
+  },
+  {
+    "question": "What is tightly correlated with the variation in the locally linear maps learned for word translation, according to the study?",
+    "ground_truth": "The distance between the neighborhoods on which the locally linear maps are trained.",
+    "source_title": "Characterizing Departures from Linearity in Word Translation"
+  }
+]
