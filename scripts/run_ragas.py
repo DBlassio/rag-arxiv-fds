@@ -57,14 +57,14 @@ async def main():
         print(f"  [{i+1}/{len(eval_set)}] {item['question'][:60]}...")
         results.append(await score_example(item, metrics))
 
-    keys = ["question", "faithfulness", "answer_relevancy", "context_precision", "context_recall"]
+    keys = ["question", "answer", "contexts", "faithfulness", "answer_relevancy", "context_precision", "context_recall"]
     with open("eval/ragas_results.csv", "w", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=keys)
         writer.writeheader()
         writer.writerows(results)
 
     print("\n--- Baseline (promedio del eval set) ---")
-    for metric in keys[1:]:
+    for metric in keys[3:]: 
         avg = sum(r[metric] for r in results) / len(results)
         print(f"{metric}: {avg:.3f}")
 
