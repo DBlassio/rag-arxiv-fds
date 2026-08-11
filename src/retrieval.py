@@ -14,25 +14,24 @@ class RetrievedChunk:
     arxiv_id: str
     distance: float
 
-
-#Our retrieve function takes a question and an optional number of results to return
-
-def retrieve(question: str, n_results: int = 3) -> list[RetrievedChunk]:
-
+#Our retrieve function but now with Reranking
+#We add a second layer of retrieval that combines the bi-encoder retrieval with the cross-encoder reranking.
+def retrieve(question: str,n_results: int = 3,use_reranking: bool = False,n_candidates: int = 20) -> list[RetrievedChunk]:
     query_vec = embed_texts([question])[0]
     client = get_client()
     collection = get_or_create_collection(client)
 
-    #We retrieve the most relevant chunks of text from the vector store using the query vector
-    results = vs_query(collection, query_vec, n_results=n_results)
+    #If we rerank, we fetch more candidates from the vector store to allow the reranker to select the best ones.
+    fetch_n = n_candidates if use_reranking else n_results
+    results = vs_query(collection, query_vec, n_results=fetch_n)
 
-    chunks = []
+    chunks = [
+        RetrievedChunk(text=doc, title=meta.get("title", "unknown"),arxiv_id=meta.get("arxiv_id", ""), distance=dist)
+        for doc, meta, dist in zip(results["documents"][0], results["metadatas"][0], results["distances"][0])]
 
-    for doc, meta, dist in zip(results["documents"][0], results["metadatas"][0], results["distances"][0]):
-        chunks.append(RetrievedChunk(
-            text=doc,
-            title=meta.get("title", "unknown"),
-            arxiv_id=meta.get("arxiv_id", ""),
-            distance=dist))
+    if use_reranking:
+        from src.reranking import rerank
+        chunks = rerank(question, chunks, top_n=n_results)
 
-    return chunks 
+    return chunks
+

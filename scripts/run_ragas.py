@@ -15,8 +15,9 @@ load_dotenv()
 JUDGE_MODEL = "claude-sonnet-4-6"
 
 
-async def score_example(item: dict, metrics: dict) -> dict:
-    chunks = retrieve(item["question"], n_results=3)
+async def score_example(item: dict, metrics: dict, use_reranking: bool) -> dict:
+
+    chunks = retrieve(item["question"], use_reranking=use_reranking)
     answer = generate_answer(item["question"], chunks)
     contexts = [c.text for c in chunks]
 
@@ -36,6 +37,22 @@ async def score_example(item: dict, metrics: dict) -> dict:
     }
 
 
+async def run_eval(eval_set: list[dict], metrics: dict, use_reranking: bool, label: str) -> list[dict]:
+    results = []
+    for i, item in enumerate(eval_set):
+        print(f"  [{label}] [{i+1}/{len(eval_set)}] {item['question'][:50]}...")
+        results.append(await score_example(item, metrics, use_reranking))
+    return results
+
+
+def save_csv(results: list[dict], path: str) -> None:
+    keys = ["question", "answer", "contexts", "faithfulness", "answer_relevancy", "context_precision", "context_recall"]
+    with open(path, "w", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=keys)
+        writer.writeheader()
+        writer.writerows(results)
+
+
 async def main():
     with open("eval/eval_set.json") as f:
         eval_set = json.load(f)
@@ -51,22 +68,19 @@ async def main():
         "context_recall": ContextRecall(llm=llm),
     }
 
-    print(f"Scoring {len(eval_set)} eval questions...")
-    results = []
-    for i, item in enumerate(eval_set):
-        print(f"  [{i+1}/{len(eval_set)}] {item['question'][:60]}...")
-        results.append(await score_example(item, metrics))
+    print(f"Scoring {len(eval_set)} eval questions for 2 configurations...")
+    baseline = await run_eval(eval_set, metrics, use_reranking=False, label="baseline")
+    reranked = await run_eval(eval_set, metrics, use_reranking=True, label="reranked")
 
-    keys = ["question", "answer", "contexts", "faithfulness", "answer_relevancy", "context_precision", "context_recall"]
-    with open("eval/ragas_results.csv", "w", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=keys)
-        writer.writeheader()
-        writer.writerows(results)
+    save_csv(baseline, "eval/ragas_results_baseline.csv")
+    save_csv(reranked, "eval/ragas_results_reranked.csv")
 
-    print("\n--- Baseline (promedio del eval set) ---")
-    for metric in keys[3:]: 
-        avg = sum(r[metric] for r in results) / len(results)
-        print(f"{metric}: {avg:.3f}")
+    print("\n--- Comparison between baseline and reranked ---")
+    for metric in ["faithfulness", "answer_relevancy", "context_precision", "context_recall"]:
+        b = sum(r[metric] for r in baseline) / len(baseline)
+        r = sum(r[metric] for r in reranked) / len(reranked)
+        delta = r - b
+        print(f"{metric}: {b:.3f} -> {r:.3f}  ({'+' if delta >= 0 else ''}{delta:.3f})")
 
 
 if __name__ == "__main__":
