@@ -13,3 +13,4 @@ FlagEmbedding
 fastapi
 uvicorn[standard]
 mangum
+boto3
