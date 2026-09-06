@@ -1,6 +1,6 @@
 from fastapi import FastAPI
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
-
 from src.retrieval import retrieve
 from src.generation import generate_answer
 
@@ -35,3 +35,7 @@ def ask(request: AskRequest) -> AskResponse:
 @app.get("/health")
 def health() -> dict:
     return {"status": "ok"}
+
+@app.get("/")
+def serve_ui():
+    return FileResponse("app/static/index.html")
