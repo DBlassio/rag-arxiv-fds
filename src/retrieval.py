@@ -13,6 +13,7 @@ class RetrievedChunk:
     title: str
     arxiv_id: str
     distance: float
+    rerank_score: float | None = None
 
 #Our retrieve function but now with Reranking
 #We add a second layer of retrieval that combines the bi-encoder retrieval with the cross-encoder reranking.

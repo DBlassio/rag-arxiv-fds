@@ -1,6 +1,6 @@
 from fastapi import FastAPI
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
-
 from src.retrieval import retrieve
 from src.generation import generate_answer
 
@@ -16,6 +16,7 @@ class Source(BaseModel):
     title: str
     arxiv_id: str
     distance: float
+    rerank_score: float | None = None
 
 
 class AskResponse(BaseModel):
@@ -35,3 +36,7 @@ def ask(request: AskRequest) -> AskResponse:
 @app.get("/health")
 def health() -> dict:
     return {"status": "ok"}
+
+@app.get("/")
+def serve_ui():
+    return FileResponse("app/static/index.html")
