@@ -1,6 +1,5 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from mangum import Mangum
 
 from src.retrieval import retrieve
 from src.generation import generate_answer
@@ -30,12 +29,10 @@ def ask(request: AskRequest) -> AskResponse:
     answer = generate_answer(request.question, chunks)
     return AskResponse(
         answer=answer,
-        sources=[Source(title=c.title, arxiv_id=c.arxiv_id, distance=c.distance) for c in chunks])
+        sources=[Source(title=c.title, arxiv_id=c.arxiv_id, distance=c.distance) for c in chunks],
+    )
 
 
 @app.get("/health")
 def health() -> dict:
     return {"status": "ok"}
-
-
-handler = Mangum(app)
