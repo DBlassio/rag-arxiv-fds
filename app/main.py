@@ -16,6 +16,7 @@ class Source(BaseModel):
     title: str
     arxiv_id: str
     distance: float
+    rerank_score: float | None = None
 
 
 class AskResponse(BaseModel):

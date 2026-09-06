@@ -368,9 +368,7 @@
 
       <div class="label" id="sources-label" style="display:none;">sources</div>
       <div class="sources" id="sources"></div>
-      <p class="score-caption" id="score-caption" style="display:none;">
-        Score = bi-encoder cosine distance (lower is stronger match). Order above reflects the actual ranking used to generate this answer.
-      </p>
+      <p class="score-caption" id="score-caption" style="display:none;"></p>
     </section>
   </div>
 
@@ -387,8 +385,9 @@
     const submitBtn = document.getElementById('submit-btn');
     const rerankToggle = document.getElementById('use-reranking');
 
-    const MAX_REF_DISTANCE = 0.5; // beyond this, treated as zero relevance
+    const MAX_REF_DISTANCE = 0.5; // beyond this, treated as zero relevance (naive/bi-encoder mode)
 
+    // Naive mode: bi-encoder cosine distance — lower is stronger.
     function tier(distance) {
       if (distance <= 0.20) return { color: 'var(--strong)', name: 'strong' };
       if (distance <= 0.35) return { color: 'var(--weak)', name: 'weak' };
@@ -397,6 +396,15 @@
 
     function relevanceFraction(distance) {
       return Math.max(0, Math.min(1, 1 - distance / MAX_REF_DISTANCE));
+    }
+
+    // Reranked mode: cross-encoder sigmoid score — higher is stronger.
+    // Thresholds anchored at the sigmoid's natural decision point (0.5), not empirically
+    // calibrated on this corpus the way the naive-mode thresholds are.
+    function rerankTier(score) {
+      if (score >= 0.5) return { color: 'var(--strong)', name: 'strong' };
+      if (score >= 0.2) return { color: 'var(--weak)', name: 'weak' };
+      return { color: 'var(--none)', name: 'none' };
     }
 
     document.querySelectorAll('.chip').forEach((chip) => {
@@ -439,9 +447,18 @@
         if (data.sources.length > 0) {
           sourcesLabel.style.display = 'block';
           scoreCaption.style.display = 'block';
+          scoreCaption.textContent = data.sources[0].rerank_score != null
+            ? 'Score = cross-encoder relevance (higher is stronger match), from the reranking step.'
+            : 'Score = bi-encoder cosine distance (lower is stronger match).';
+
           data.sources.forEach((s) => {
-            const t = tier(s.distance);
-            const pct = (relevanceFraction(s.distance) * 100).toFixed(0);
+            const usingRerankScore = s.rerank_score !== null && s.rerank_score !== undefined;
+            const t = usingRerankScore ? rerankTier(s.rerank_score) : tier(s.distance);
+            const pct = usingRerankScore
+              ? (s.rerank_score * 100).toFixed(0)
+              : (relevanceFraction(s.distance) * 100).toFixed(0);
+            const scoreLabel = usingRerankScore ? s.rerank_score.toFixed(3) : s.distance.toFixed(3);
+
             const row = document.createElement('div');
             row.className = 'source-row';
             row.innerHTML = `
@@ -453,7 +470,7 @@
                 <div class="bar-track">
                   <div class="bar-fill" style="width:${pct}%; background:${t.color};"></div>
                 </div>
-                <span class="score mono" style="color:${t.color};">${s.distance.toFixed(3)}</span>
+                <span class="score mono" style="color:${t.color};">${scoreLabel}</span>
               </div>
             `;
             sourcesEl.appendChild(row);
