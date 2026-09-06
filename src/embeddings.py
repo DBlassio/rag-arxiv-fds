@@ -1,11 +1,11 @@
-"""Embeddings module: wraps SentenceTransformer to produce normalized vectors."""
+# Our embedding module. Wraps SentenceTransformer to produce normalized vectors.
 
 from sentence_transformers import SentenceTransformer
 import numpy as np
 
-MODEL_NAME = "BAAI/bge-small-en-v1.5"
+MODEL_NAME = "BAAI/bge-small-en-v1.5" # D -> 384 dim.
 
-_model: SentenceTransformer | None = None
+_model: SentenceTransformer | None = None   # singleton: evita recargar el modelo en cada llamada
 
 
 def get_model() -> SentenceTransformer:
@@ -14,7 +14,7 @@ def get_model() -> SentenceTransformer:
         _model = SentenceTransformer(MODEL_NAME)
     return _model
 
-
+# Our embedding function. Normalizes the vectors to unit length, which is important for cosine similarity.
 def embed_texts(texts: list[str]) -> np.ndarray:
     model = get_model()
     return model.encode(

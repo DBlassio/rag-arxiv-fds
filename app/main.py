@@ -29,8 +29,7 @@ def ask(request: AskRequest) -> AskResponse:
     answer = generate_answer(request.question, chunks)
     return AskResponse(
         answer=answer,
-        sources=[Source(title=c.title, arxiv_id=c.arxiv_id, distance=c.distance) for c in chunks],
-    )
+        sources=[Source(title=c.title, arxiv_id=c.arxiv_id, distance=c.distance) for c in chunks])
 
 
 @app.get("/health")
