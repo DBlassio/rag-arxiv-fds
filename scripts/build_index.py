@@ -16,15 +16,18 @@ def _serialize_metadata(chunks):
     return chunks
 
 
-def main(max_results: int = 500, reset: bool = True):
+def main(query: str = "cat:cs.CL OR cat:cs.CV OR cat:cs.AI OR cat:cs.LG OR cat:cs.IR",
+         max_results: int = 500,
+         reset: bool = True):
+    
     client = get_client()
 
     if reset:
         print("0. Resetting collection...")
         reset_collection(client)
 
-    print(f"1. Fetching {max_results} papers...")
-    docs = fetch_arxiv_papers(max_results=max_results, batch_size=100)
+    print(f"1. Fetching {max_results} papers (query: {query})...")
+    docs = fetch_arxiv_papers(query=query, max_results=max_results, batch_size=100)
 
     print("2. Chunking...")
     chunks = chunk_documents(docs)
