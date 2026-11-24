@@ -1,0 +1,302 @@
+[
+  {
+    "question": "What technique does EIVEN introduce to reduce model confusion between similar attribute values?",
+    "ground_truth": "Learning-by-Comparison",
+    "source_title": "EIVEN: Efficient Implicit Attribute Value Extraction using Multimodal LLM",
+    "reference_doc_ids": [
+      "http://arxiv.org/abs/2404.08886v1"
+    ],
+    "reference_chunk_ids": [
+      "2404.08886v1_12"
+    ],
+    "reference_context": "In e-commerce, accurately extracting product attribute values from multimodal data is crucial for improving user experience and operational efficiency of retailers. However, previous approaches to multimodal attribute value extraction often struggle with implicit attribute values embedded in images or text, rely heavily on extensive labeled data, and can easily confuse similar attribute values. To address these issues, we introduce EIVEN, a data- and parameter-efficient generative framework that pioneers the use of multimodal LLM for implicit attribute value extraction. EIVEN leverages the rich inherent knowledge of a pre-trained LLM and vision encoder to reduce reliance on labeled data. We also introduce a novel Learning-by-Comparison technique to reduce model confusion by enforcing attribute value comparison and difference identification. Additionally, we construct initial open-source datasets for multimodal implicit attribute value extraction. Our extensive experiments reveal that EIVEN significantly outperforms existing methods in extracting implicit attribute values while requiring less labeled data.",
+    "is_answerable": true,
+    "question_type": "single_document",
+    "review_status": "approved"
+  },
+  {
+    "question": "What does the abbreviation STA stand for in the paper?",
+    "ground_truth": "Steering Target Atoms",
+    "source_title": "Beyond Prompt Engineering: Robust Behavior Control in LLMs via Steering Target Atoms",
+    "reference_doc_ids": [
+      "http://arxiv.org/abs/2505.20322v2"
+    ],
+    "reference_chunk_ids": [
+      "2505.20322v2_15"
+    ],
+    "reference_context": "Precise control over language model generation is vital for ensuring both safety and reliability. Although prompt engineering and steering are commonly used to intervene in model behaviors, the vast number of parameters in models often results in highly intertwined internal representations. This interdependency can limit control precision and sometimes lead to unintended side effects. Recent research has explored the use of sparse autoencoders (SAE) to disentangle knowledge in high-dimensional spaces for steering. However, these applications have been limited to toy tasks owing to the nontrivial issue of locating atomic knowledge components. In this paper, we propose Steering Target Atoms (STA), a novel method that isolates and manipulates disentangled knowledge components to enhance safety. Comprehensive experiments demonstrate the effectiveness of our approach. Further analysis reveals that steering exhibits superior robustness and flexibility, particularly in adversarial scenarios. We also apply the steering strategy to the large reasoning model, confirming its effectiveness in precise reasoning control.",
+    "is_answerable": true,
+    "question_type": "single_document",
+    "review_status": "approved"
+  },
+  {
+    "question": "How many datasets does the Universal Video Retrieval Benchmark (UVRB) consist of, and how many high-quality pairs does the scalable synthesis workflow generate?",
+    "ground_truth": "UVRB consists of 16 datasets, and the synthesis workflow generates 1.55 million high-quality pairs.",
+    "source_title": "Towards Universal Video Retrieval: Generalizing Video Embedding via Synthesized Multimodal Pyramid Curriculum",
+    "reference_doc_ids": [
+      "http://arxiv.org/abs/2510.27571v1"
+    ],
+    "reference_chunk_ids": [
+      "2510.27571v1_16"
+    ],
+    "reference_context": "The prevailing video retrieval paradigm is structurally misaligned, as narrow benchmarks incentivize correspondingly limited data and single-task training. Therefore, universal capability is suppressed due to the absence of a diagnostic evaluation that defines and demands multi-dimensional generalization. To break this cycle, we introduce a framework built on the co-design of evaluation, data, and modeling. First, we establish the Universal Video Retrieval Benchmark (UVRB), a suite of 16 datasets designed not only to measure performance but also to diagnose critical capability gaps across tasks and domains. Second, guided by UVRB's diagnostics, we introduce a scalable synthesis workflow that generates 1.55 million high-quality pairs to populate the semantic space required for universality. Finally, we devise the Modality Pyramid, a curriculum that trains our General Video Embedder (GVE) by explicitly leveraging the latent interconnections within our diverse data. Extensive experiments show GVE achieves state-of-the-art zero-shot generalization on UVRB. In particular, our analysis reveals that popular benchmarks are poor predictors of general ability and that partially relevant retrieval is a dominant but overlooked scenario. Overall, our co-designed framework provides a practical path to escape the limited scope and advance toward truly universal video retrieval.",
+    "is_answerable": true,
+    "question_type": "single_document",
+    "review_status": "approved"
+  },
+  {
+    "question": "What are the MRR and NDCG performance percentages achieved by the proposed two-step non-parametric ranking approach described in the abstract?",
+    "ground_truth": "70.41% for MRR and 72.16% for NDCG",
+    "source_title": "Ensemble of MRR and NDCG models for Visual Dialog",
+    "reference_doc_ids": [
+      "http://arxiv.org/abs/2104.07511v3"
+    ],
+    "reference_chunk_ids": [
+      "2104.07511v3_44"
+    ],
+    "reference_context": "Assessing an AI agent that can converse in human language and understand visual content is challenging. Generation metrics, such as BLEU scores favor correct syntax over semantics. Hence a discriminative approach is often used, where an agent ranks a set of candidate options. The mean reciprocal rank (MRR) metric evaluates the model performance by taking into account the rank of a single human-derived answer. This approach, however, raises a new challenge: the ambiguity and synonymy of answers, for instance, semantic equivalence (e.g., `yeah' and `yes'). To address this, the normalized discounted cumulative gain (NDCG) metric has been used to capture the relevance of all the correct answers via dense annotations. However, the NDCG metric favors the usually applicable uncertain answers such as `I don't know. Crafting a model that excels on both MRR and NDCG metrics is challenging. Ideally, an AI agent should answer a human-like reply and validate the correctness of any answer. To address this issue, we describe a two-step non-parametric ranking approach that can merge strong MRR and NDCG models. Using our approach, we manage to keep most MRR state-of-the-art performance (70.41% vs. 71.24%) and the NDCG state-of-the-art performance (72.16% vs. 75.35%). Moreover, our approach won the recent Visual Dialog 2020 challenge. Source code is available at https://github.com/idansc/mrr-ndcg.",
+    "is_answerable": true,
+    "question_type": "single_document",
+    "review_status": "approved"
+  },
+  {
+    "question": "Which two language models were used in the experiments to uncover knowledge circuits?",
+    "ground_truth": "GPT2 and TinyLLAMA",
+    "source_title": "Knowledge Circuits in Pretrained Transformers",
+    "reference_doc_ids": [
+      "http://arxiv.org/abs/2405.17969v4"
+    ],
+    "reference_chunk_ids": [
+      "2405.17969v4_47"
+    ],
+    "reference_context": "The remarkable capabilities of modern large language models are rooted in their vast repositories of knowledge encoded within their parameters, enabling them to perceive the world and engage in reasoning. The inner workings of how these models store knowledge have long been a subject of intense interest and investigation among researchers. To date, most studies have concentrated on isolated components within these models, such as the Multilayer Perceptrons and attention head. In this paper, we delve into the computation graph of the language model to uncover the knowledge circuits that are instrumental in articulating specific knowledge. The experiments, conducted with GPT2 and TinyLLAMA, have allowed us to observe how certain information heads, relation heads, and Multilayer Perceptrons collaboratively encode knowledge within the model. Moreover, we evaluate the impact of current knowledge editing techniques on these knowledge circuits, providing deeper insights into the functioning and constraints of these editing methodologies. Finally, we utilize knowledge circuits to analyze and interpret language model behaviors such as hallucinations and in-context learning. We believe the knowledge circuits hold potential for advancing our understanding of Transformers and guiding the improved design of knowledge editing. Code and data are available in https://github.com/zjunlp/KnowledgeCircuits.",
+    "is_answerable": true,
+    "question_type": "single_document",
+    "review_status": "approved"
+  },
+  {
+    "question": "What is the range of sequence lengths covered by the tasks in the LRA benchmark?",
+    "ground_truth": "From 1K to 16K tokens",
+    "source_title": "Long Range Arena: A Benchmark for Efficient Transformers",
+    "reference_doc_ids": [
+      "http://arxiv.org/abs/2011.04006v1"
+    ],
+    "reference_chunk_ids": [
+      "2011.04006v1_52"
+    ],
+    "reference_context": "Transformers do not scale very well to long sequence lengths largely because of quadratic self-attention complexity. In the recent months, a wide spectrum of efficient, fast Transformers have been proposed to tackle this problem, more often than not claiming superior or comparable model quality to vanilla Transformer models. To this date, there is no well-established consensus on how to evaluate this class of models. Moreover, inconsistent benchmarking on a wide spectrum of tasks and datasets makes it difficult to assess relative model quality amongst many models. This paper proposes a systematic and unified benchmark, LRA, specifically focused on evaluating model quality under long-context scenarios. Our benchmark is a suite of tasks consisting of sequences ranging from $1K$ to $16K$ tokens, encompassing a wide range of data types and modalities such as text, natural, synthetic images, and mathematical expressions requiring similarity, structural, and visual-spatial reasoning. We systematically evaluate ten well-established long-range Transformer models (Reformers, Linformers, Linear Transformers, Sinkhorn Transformers, Performers, Synthesizers, Sparse Transformers, and Longformers) on our newly proposed benchmark suite. LRA paves the way towards better understanding this class of efficient Transformer models, facilitates more research in this direction, and presents new challenging tasks to tackle. Our benchmark code will be released at https://github.com/google-research/long-range-arena.",
+    "is_answerable": true,
+    "question_type": "single_document",
+    "review_status": "approved"
+  },
+  {
+    "question": "Which two benchmarks were used to evaluate the proposed visual evidence selection method?",
+    "ground_truth": "MRAG-Bench and Visual-RAG",
+    "source_title": "Utility-Oriented Visual Evidence Selection for Multimodal Retrieval-Augmented Generation",
+    "reference_doc_ids": [
+      "http://arxiv.org/abs/2605.13277v1"
+    ],
+    "reference_chunk_ids": [
+      "2605.13277v1_57"
+    ],
+    "reference_context": "Visual evidence selection is a critical component of multimodal retrieval-augmented generation (RAG), yet existing methods typically rely on semantic relevance or surface-level similarity, which are often misaligned with the actual utility of visual evidence for downstream reasoning. We reformulate multimodal evidence selection from an information-theoretic perspective by defining evidence utility as the information gain induced on a model's output distribution. To overcome the intractability of answer-space optimization, we introduce a latent notion of evidence helpfulness and theoretically show that, under mild assumptions, ranking evidence by information gain on this latent variable is equivalent to answer-space utility. We further propose a training-free, surrogate-accelerated framework that efficiently estimates evidence utility using lightweight multimodal models. Experiments on MRAG-Bench and Visual-RAG across multiple model families demonstrate that our method consistently outperforms state-of-the-art RAG baselines while achieving substantial reductions in computational cost.",
+    "is_answerable": true,
+    "question_type": "single_document",
+    "review_status": "approved"
+  },
+  {
+    "question": "What does the robot first learn by manipulating objects in its environment?",
+    "ground_truth": "The association between words and object affordances",
+    "source_title": "Beyond the Self: Using Grounded Affordances to Interpret and Describe Others' Actions",
+    "reference_doc_ids": [
+      "http://arxiv.org/abs/1902.09705v1"
+    ],
+    "reference_chunk_ids": [
+      "1902.09705v1_71"
+    ],
+    "reference_context": "We propose a developmental approach that allows a robot to interpret and describe the actions of human agents by reusing previous experience. The robot first learns the association between words and object affordances by manipulating the objects in its environment. It then uses this information to learn a mapping between its own actions and those performed by a human in a shared environment. It finally fuses the information from these two models to interpret and describe human actions in light of its own experience. In our experiments, we show that the model can be used flexibly to do inference on different aspects of the scene. We can predict the effects of an action on the basis of object properties. We can revise the belief that a certain action occurred, given the observed effects of the human action. In an early action recognition fashion, we can anticipate the effects when the action has only been partially observed. By estimating the probability of words given the evidence and feeding them into a pre-defined grammar, we can generate relevant descriptions of the scene. We believe that this is a step towards providing robots with the fundamental skills to engage in social collaboration with humans.",
+    "is_answerable": true,
+    "question_type": "single_document",
+    "review_status": "approved"
+  },
+  {
+    "question": "Which collection of benchmark datasets with realistic distribution shifts was used to evaluate the few-shot fine-tuning recipe for CLIP?",
+    "ground_truth": "The WILDS collection",
+    "source_title": "Robust Fine-Tuning of Vision-Language Models for Domain Generalization",
+    "reference_doc_ids": [
+      "http://arxiv.org/abs/2311.02236v1"
+    ],
+    "reference_chunk_ids": [
+      "2311.02236v1_111"
+    ],
+    "reference_context": "Transfer learning enables the sharing of common knowledge among models for a variety of downstream tasks, but traditional methods suffer in limited training data settings and produce narrow models incapable of effectively generalizing under distribution shifts. Foundation models have recently demonstrated impressive zero-shot inference capabilities and robustness under distribution shifts. However, zero-shot evaluation for these models has been predominantly confined to benchmarks with simple distribution shifts, limiting our understanding of their effectiveness under the more realistic shifts found in practice. Moreover, common fine-tuning methods for these models have yet to be evaluated against vision models in few-shot scenarios where training data is limited. To address these gaps, we present a new recipe for few-shot fine-tuning of the popular vision-language foundation model CLIP and evaluate its performance on challenging benchmark datasets with realistic distribution shifts from the WILDS collection. Our experimentation demonstrates that, while zero-shot CLIP fails to match performance of trained vision models on more complex benchmarks, few-shot CLIP fine-tuning outperforms its vision-only counterparts in terms of in-distribution and out-of-distribution accuracy at all levels of training data availability. This provides a strong incentive for adoption of foundation models within few-shot learning applications operating with real-world data. Code is available at https://github.com/mit-ll/robust-vision-language-finetuning",
+    "is_answerable": true,
+    "question_type": "single_document",
+    "review_status": "approved"
+  },
+  {
+    "question": "What does the acronym CALVIN stand for in this paper?",
+    "ground_truth": "Composing Actions from Language and Vision",
+    "source_title": "CALVIN: A Benchmark for Language-Conditioned Policy Learning for Long-Horizon Robot Manipulation Tasks",
+    "reference_doc_ids": [
+      "http://arxiv.org/abs/2112.03227v4"
+    ],
+    "reference_chunk_ids": [
+      "2112.03227v4_114"
+    ],
+    "reference_context": "General-purpose robots coexisting with humans in their environment must learn to relate human language to their perceptions and actions to be useful in a range of daily tasks. Moreover, they need to acquire a diverse repertoire of general-purpose skills that allow composing long-horizon tasks by following unconstrained language instructions. In this paper, we present CALVIN (Composing Actions from Language and Vision), an open-source simulated benchmark to learn long-horizon language-conditioned tasks. Our aim is to make it possible to develop agents that can solve many robotic manipulation tasks over a long horizon, from onboard sensors, and specified only via human language. CALVIN tasks are more complex in terms of sequence length, action space, and language than existing vision-and-language task datasets and supports flexible specification of sensor suites. We evaluate the agents in zero-shot to novel language instructions and to novel environments and objects. We show that a baseline model based on multi-context imitation learning performs poorly on CALVIN, suggesting that there is significant room for developing innovative agents that learn to relate human language to their world models with this benchmark.",
+    "is_answerable": true,
+    "question_type": "single_document",
+    "review_status": "approved"
+  },
+  {
+    "question": "What does the abbreviation SEA stand for in the proposed model for document-level event extraction?",
+    "ground_truth": "Schema-based Explicitly Aggregating",
+    "source_title": "Type-aware Decoding via Explicitly Aggregating Event Information for Document-level Event Extraction",
+    "reference_doc_ids": [
+      "http://arxiv.org/abs/2310.10487v1"
+    ],
+    "reference_chunk_ids": [
+      "2310.10487v1_125"
+    ],
+    "reference_context": "Document-level event extraction (DEE) faces two main challenges: arguments-scattering and multi-event. Although previous methods attempt to address these challenges, they overlook the interference of event-unrelated sentences during event detection and neglect the mutual interference of different event roles during argument extraction. Therefore, this paper proposes a novel Schema-based Explicitly Aggregating~(SEA) model to address these limitations. SEA aggregates event information into event type and role representations, enabling the decoding of event records based on specific type-aware representations. By detecting each event based on its event type representation, SEA mitigates the interference caused by event-unrelated information. Furthermore, SEA extracts arguments for each role based on its role-aware representations, reducing mutual interference between different roles. Experimental results on the ChFinAnn and DuEE-fin datasets show that SEA outperforms the SOTA methods.",
+    "is_answerable": true,
+    "question_type": "single_document",
+    "review_status": "approved"
+  },
+  {
+    "question": "Which of the three CCITT coding modes (horizontal, vertical, or pass mode) gave the most promising OCR results in the proposed compressed domain method?",
+    "ground_truth": "Pass mode",
+    "source_title": "OCR for TIFF Compressed Document Images Directly in Compressed Domain Using Text segmentation and Hidden Markov Model",
+    "reference_doc_ids": [
+      "http://arxiv.org/abs/2209.09118v1"
+    ],
+    "reference_chunk_ids": [
+      "2209.09118v1_140"
+    ],
+    "reference_context": "In today's technological era, document images play an important and integral part in our day to day life, and specifically with the surge of Covid-19, digitally scanned documents have become key source of communication, thus avoiding any sort of infection through physical contact. Storage and transmission of scanned document images is a very memory intensive task, hence compression techniques are being used to reduce the image size before archival and transmission. To extract information or to operate on the compressed images, we have two ways of doing it. The first way is to decompress the image and operate on it and subsequently compress it again for the efficiency of storage and transmission. The other way is to use the characteristics of the underlying compression algorithm to directly process the images in their compressed form without involving decompression and re-compression. In this paper, we propose a novel idea of developing an OCR for CCITT (The International Telegraph and Telephone Consultative Committee) compressed machine printed TIFF document images directly in the compressed domain. After segmenting text regions into lines and words, HMM is applied for recognition using three coding modes of CCITT- horizontal, vertical and the pass mode. Experimental results show that OCR on pass modes give a promising results.",
+    "is_answerable": true,
+    "question_type": "single_document",
+    "review_status": "approved"
+  },
+  {
+    "question": "What is the name of the new Chinese Biomedical Language Understanding Evaluation benchmark released in this paper?",
+    "ground_truth": "ChineseBLUE",
+    "source_title": "Conceptualized Representation Learning for Chinese Biomedical Text Mining",
+    "reference_doc_ids": [
+      "http://arxiv.org/abs/2008.10813v1"
+    ],
+    "reference_chunk_ids": [
+      "2008.10813v1_216"
+    ],
+    "reference_context": "Biomedical text mining is becoming increasingly important as the number of biomedical documents and web data rapidly grows. Recently, word representation models such as BERT has gained popularity among researchers. However, it is difficult to estimate their performance on datasets containing biomedical texts as the word distributions of general and biomedical corpora are quite different. Moreover, the medical domain has long-tail concepts and terminologies that are difficult to be learned via language models. For the Chinese biomedical text, it is more difficult due to its complex structure and the variety of phrase combinations. In this paper, we investigate how the recently introduced pre-trained language model BERT can be adapted for Chinese biomedical corpora and propose a novel conceptualized representation learning approach. We also release a new Chinese Biomedical Language Understanding Evaluation benchmark (\\textbf{ChineseBLUE}). We examine the effectiveness of Chinese pre-trained models: BERT, BERT-wwm, RoBERTa, and our approach. Experimental results on the benchmark show that our approach could bring significant gain. We release the pre-trained model on GitHub: https://github.com/alibaba-research/ChineseBLUE.",
+    "is_answerable": true,
+    "question_type": "single_document",
+    "review_status": "approved"
+  },
+  {
+    "question": "What parameter scale is the family of VLMs introduced in this work?",
+    "ground_truth": "7-13B scale",
+    "source_title": "Prismatic VLMs: Investigating the Design Space of Visually-Conditioned Language Models",
+    "reference_doc_ids": [
+      "http://arxiv.org/abs/2402.07865v2"
+    ],
+    "reference_chunk_ids": [
+      "2402.07865v2_279"
+    ],
+    "reference_context": "Visually-conditioned language models (VLMs) have seen growing adoption in applications such as visual dialogue, scene understanding, and robotic task planning; adoption that has fueled a wealth of new models such as LLaVa, InstructBLIP, and PaLI-3. Despite the volume of new releases, key design decisions around image preprocessing, architecture, and optimization are under-explored, making it challenging to understand what factors account for model performance $-$ a challenge further complicated by the lack of objective, consistent evaluations. To address these gaps, we first compile a suite of standardized evaluations spanning visual question answering, object localization, and challenge sets that probe properties such as hallucination; evaluations that provide fine-grained insight VLM capabilities. Second, we rigorously investigate VLMs along key design axes, including pretrained visual representations and training from base vs. instruct-tuned language models, amongst others. We couple our analysis with three resource contributions: (1) a unified framework for evaluating VLMs, (2) optimized, flexible training code, and (3) checkpoints for all models, including a family of VLMs at the 7-13B scale that strictly outperform InstructBLIP and LLaVa v1.5, the state-of-the-art in open VLMs.",
+    "is_answerable": true,
+    "question_type": "single_document",
+    "review_status": "approved"
+  },
+  {
+    "question": "How many movie plot summaries are contained in the CMU Movie Summary Corpus used in the evaluation?",
+    "ground_truth": "25,203",
+    "source_title": "Feature extraction using Latent Dirichlet Allocation and Neural Networks: A case study on movie synopses",
+    "reference_doc_ids": [
+      "http://arxiv.org/abs/1604.01272v1"
+    ],
+    "reference_chunk_ids": [
+      "1604.01272v1_302"
+    ],
+    "reference_context": "Feature extraction has gained increasing attention in the field of machine learning, as in order to detect patterns, extract information, or predict future observations from big data, the urge of informative features is crucial. The process of extracting features is highly linked to dimensionality reduction as it implies the transformation of the data from a sparse high-dimensional space, to higher level meaningful abstractions. This dissertation employs Neural Networks for distributed paragraph representations, and Latent Dirichlet Allocation to capture higher level features of paragraph vectors. Although Neural Networks for distributed paragraph representations are considered the state of the art for extracting paragraph vectors, we show that a quick topic analysis model such as Latent Dirichlet Allocation can provide meaningful features too. We evaluate the two methods on the CMU Movie Summary Corpus, a collection of 25,203 movie plot summaries extracted from Wikipedia. Finally, for both approaches, we use K-Nearest Neighbors to discover similar movies, and plot the projected representations using T-Distributed Stochastic Neighbor Embedding to depict the context similarities. These similarities, expressed as movie distances, can be used for movies recommendation. The recommended movies of this approach are compared with the recommended movies from IMDB, which use a collaborative filtering recommendation approach, to show that our two models could constitute either an alternative or a supplementary recommendation approach.",
+    "is_answerable": true,
+    "question_type": "single_document",
+    "review_status": "approved"
+  },
+  {
+    "question": "What is the name of the interactive tool introduced for large-scale conversation analysis?",
+    "ground_truth": "WildVis",
+    "source_title": "WildVis: Open Source Visualizer for Million-Scale Chat Logs in the Wild",
+    "reference_doc_ids": [
+      "http://arxiv.org/abs/2409.03753v2"
+    ],
+    "reference_chunk_ids": [
+      "2409.03753v2_327"
+    ],
+    "reference_context": "The increasing availability of real-world conversation data offers exciting opportunities for researchers to study user-chatbot interactions. However, the sheer volume of this data makes manually examining individual conversations impractical. To overcome this challenge, we introduce WildVis, an interactive tool that enables fast, versatile, and large-scale conversation analysis. WildVis provides search and visualization capabilities in the text and embedding spaces based on a list of criteria. To manage million-scale datasets, we implemented optimizations including search index construction, embedding precomputation and compression, and caching to ensure responsive user interactions within seconds. We demonstrate WildVis' utility through three case studies: facilitating chatbot misuse research, visualizing and comparing topic distributions across datasets, and characterizing user-specific conversation patterns. WildVis is open-source and designed to be extendable, supporting additional datasets and customized search and visualization functionalities.",
+    "is_answerable": true,
+    "question_type": "single_document",
+    "review_status": "approved"
+  },
+  {
+    "question": "On average, what percentage reduction in wall-clock training time does MMR-GRPO achieve compared to standard GRPO methods?",
+    "ground_truth": "70.2%",
+    "source_title": "MMR-GRPO: Accelerating GRPO-Style Training through Diversity-Aware Reward Reweighting",
+    "reference_doc_ids": [
+      "http://arxiv.org/abs/2601.09085v2"
+    ],
+    "reference_chunk_ids": [
+      "2601.09085v2_346"
+    ],
+    "reference_context": "Group Relative Policy Optimization (GRPO) has become a standard approach for training mathematical reasoning models; however, its reliance on multiple completions per prompt makes training computationally expensive. Although recent work has reduced the number of training steps required to reach peak performance, the overall wall-clock training time often remains unchanged or even increases due to higher per-step cost. We propose MMR-GRPO, which integrates Maximal Marginal Relevance to reweigh rewards based on completion diversity. Our key insight is that semantically redundant completions contribute limited marginal learning signal; prioritizing diverse solutions yields more informative updates and accelerates convergence. Extensive evaluations across three model sizes (1.5B, 7B, 8B), three GRPO variants, and five mathematical reasoning benchmarks show that MMR-GRPO achieves comparable peak performance while requiring on average 47.9% fewer training steps and 70.2% less wall-clock time. These gains are consistent across models, methods, and benchmarks. Our code is released at: https://github.com/WeiKangda/MMR-GRPO.",
+    "is_answerable": true,
+    "question_type": "single_document",
+    "review_status": "approved"
+  },
+  {
+    "question": "What statistical method is the denoising dequantization transform derived from?",
+    "ground_truth": "A principled ridge regression objective",
+    "source_title": "Robust Training of Neural Networks at Arbitrary Precision and Sparsity",
+    "reference_doc_ids": [
+      "http://arxiv.org/abs/2409.09245v3"
+    ],
+    "reference_chunk_ids": [
+      "2409.09245v3_377"
+    ],
+    "reference_context": "The discontinuous operations inherent in quantization and sparsification introduce a long-standing obstacle to backpropagation, particularly in ultra-low precision and sparse regimes. While the community has long viewed quantization as unfriendly to gradient descent due to its lack of smoothness, we pinpoint-for the first time-that the key issue is the absence of a proper gradient path that allows training to learn robustness to quantization noise. The standard Straight-Through Estimator (STE) exacerbates this with its well-understood mismatch: a quantization-aware forward pass but oblivious backward pass, leading to unmanaged error and instability. We solve this by explicitly modeling quantization as additive noise, making the full forward-backward path well-defined without heuristic gradient estimation. As one natural solution, we introduce a denoising dequantization transform derived from a principled ridge regression objective, creating an explicit, corrective gradient path that makes learning robust to the noise STE bypasses. We extend this to sparsification by treating it as a special form of quantization that zeros out small values. Our unified framework trains models at arbitrary precisions and sparsity levels with off-the-shelf recipes, enabling stable A1W1 and sub-1-bit networks where others falter. It yields state-of-the-art results, mapping efficiency frontiers for modern LLMs and providing a theoretically grounded path to hyper-efficient neural networks.",
+    "is_answerable": true,
+    "question_type": "single_document",
+    "review_status": "approved"
+  },
+  {
+    "question": "What types of attacks are included in the Model→Data (M→D) category of the unified closed-loop threat taxonomy?",
+    "ground_truth": "Model inversion, membership inference attacks, and training data extraction attacks.",
+    "source_title": "AI Security in the Foundation Model Era: A Comprehensive Survey from a Unified Perspective",
+    "reference_doc_ids": [
+      "http://arxiv.org/abs/2603.24857v1"
+    ],
+    "reference_chunk_ids": [
+      "2603.24857v1_379"
+    ],
+    "reference_context": "As machine learning (ML) systems expand in both scale and functionality, the security landscape has become increasingly complex, with a proliferation of attacks and defenses. However, existing studies largely treat these threats in isolation, lacking a coherent framework to expose their shared principles and interdependencies. This fragmented view hinders systematic understanding and limits the design of comprehensive defenses. Crucially, the two foundational assets of ML -- \\textbf{data} and \\textbf{models} -- are no longer independent; vulnerabilities in one directly compromise the other. The absence of a holistic framework leaves open questions about how these bidirectional risks propagate across the ML pipeline. To address this critical gap, we propose a \\emph{unified closed-loop threat taxonomy} that explicitly frames model-data interactions along four directional axes. Our framework offers a principled lens for analyzing and defending foundation models. The resulting four classes of security threats represent distinct but interrelated categories of attacks: (1) Data$\\rightarrow$Data (D$\\rightarrow$D): including \\emph{data decryption attacks and watermark removal attacks}; (2) Data$\\rightarrow$Model (D$\\rightarrow$M): including \\emph{poisoning, harmful fine-tuning attacks, and jailbreak attacks}; (3) Model$\\rightarrow$Data (M$\\rightarrow$D): including \\emph{model inversion, membership inference attacks, and training data extraction attacks}; (4) Model$\\rightarrow$Model (M$\\rightarrow$M): including \\emph{model extraction attacks}. Our unified framework elucidates the underlying connections among these security threats and establishes a foundation for developing scalable, transferable, and cross-modal security strategies, particularly within the landscape of foundation models.",
+    "is_answerable": true,
+    "question_type": "single_document",
+    "review_status": "approved"
+  },
+  {
+    "question": "How much more sample-efficient is policy training on Meta-World tasks when using the Video-Language Critic reward model compared to a sparse reward only, when trained on Open X-Embodiment data?",
+    "ground_truth": "2x more sample-efficient",
+    "source_title": "Video-Language Critic: Transferable Reward Functions for Language-Conditioned Robotics",
+    "reference_doc_ids": [
+      "http://arxiv.org/abs/2405.19988v3"
+    ],
+    "reference_chunk_ids": [
+      "2405.19988v3_456"
+    ],
+    "reference_context": "Natural language is often the easiest and most convenient modality for humans to specify tasks for robots. However, learning to ground language to behavior typically requires impractical amounts of diverse, language-annotated demonstrations collected on each target robot. In this work, we aim to separate the problem of what to accomplish from how to accomplish it, as the former can benefit from substantial amounts of external observation-only data, and only the latter depends on a specific robot embodiment. To this end, we propose Video-Language Critic, a reward model that can be trained on readily available cross-embodiment data using contrastive learning and a temporal ranking objective, and use it to score behavior traces from a separate actor. When trained on Open X-Embodiment data, our reward model enables 2x more sample-efficient policy training on Meta-World tasks than a sparse reward only, despite a significant domain gap. Using in-domain data but in a challenging task generalization setting on Meta-World, we further demonstrate more sample-efficient training than is possible with prior language-conditioned reward models that are either trained with binary classification, use static images, or do not leverage the temporal information present in video data.",
+    "is_answerable": true,
+    "question_type": "single_document",
+    "review_status": "approved"
+  }
+]
