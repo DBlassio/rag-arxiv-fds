@@ -1,12 +1,29 @@
 #Ingestion Module: Fetches papers from arXiv as LangChain Documents.
 import time
 import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 import xml.etree.ElementTree as ET
 from langchain_core.documents import Document
 
 ARXIV_API_URL = "http://export.arxiv.org/api/query"
 NS = {"atom": "http://www.w3.org/2005/Atom"}
 
+
+def _build_session() -> requests.Session:
+
+    retry = Retry(total=5,
+                  backoff_factor=2,  # espera 2s, 4s, 8s, 16s, 32s entre reintentos
+                  status_forcelist=[429, 500, 502, 503, 504],
+                  allowed_methods=["GET"])
+    session = requests.Session()
+    adapter = HTTPAdapter(max_retries=retry)
+    session.mount("https://", adapter)
+    session.mount("http://", adapter)
+    return session
+
+
+_session = _build_session()
 
 def fetch_arxiv_papers(query: str = "cat:cs.CL",max_results: int = 50,batch_size: int = 20,) -> list[Document]:
     """
@@ -20,7 +37,7 @@ def fetch_arxiv_papers(query: str = "cat:cs.CL",max_results: int = 50,batch_size
     while start < max_results:
         batch = min(batch_size, max_results - start)
         params = {"search_query": query, "start": start, "max_results": batch}
-        response = requests.get(ARXIV_API_URL, params=params, timeout=10)
+        response = _session.get(ARXIV_API_URL, params=params, timeout=30)
         response.raise_for_status()
         root = ET.fromstring(response.content)
 
@@ -30,6 +47,7 @@ def fetch_arxiv_papers(query: str = "cat:cs.CL",max_results: int = 50,batch_size
 
         documents.extend(_parse_entry(e) for e in entries)
         start += batch
+        print(f"  fetched {start}/{max_results}...")
         if start < max_results:
             time.sleep(3)
 
